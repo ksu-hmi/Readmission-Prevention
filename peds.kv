@@ -1,0 +1,207 @@
+#:kivy 1.9.0
+HomeScreen:
+    DemoWindow:
+    WatWindow:
+    ResultWindow:
+
+<DemoWindow>:
+    name: "demo"
+    
+    GridLayout:
+        cols:1
+             
+        Label:
+            text: "Welcome"
+
+        GridLayout:
+            cols:2
+
+            Label:
+                text: "Patient First Name: "
+
+            TextInput:
+                id: fname
+                multinline:False
+
+            Label:
+                text: "Patient Last Name: "
+
+            TextInput:
+                id: lname
+                multiline:False
+
+            Label:
+                text: "Patient DOB (mm/dd/yy): "
+
+            TextInput:
+                id: dob
+                multiline:False
+
+            Label:
+                text: "Patient MRN (if known): "
+
+            TextInput:
+                id: mrn
+                multiline:False
+
+        Button:
+            text:"Submit"
+            on_release: 
+                app.root.current = "wat"
+                root.manager.transition.direction = "left"
+
+<WatWindow>:
+    name: "wat"
+    watscore: 0
+
+    GridLayout:
+        cols:1
+
+        Label:
+            text: "In the previous 12 hours, has your child experienced: "
+        
+        GridLayout:
+            cols:3
+
+            Label:
+                text: "Any loose or water stools"
+            Button:
+                text:"yes"
+                on_press: root.btnadd()
+                 
+            Button:
+                text:"no"
+                on_press: root.btnmin()
+
+            Label:
+                text: "Any vomiting, retching, or gagging"
+            Button:
+                text:"yes"
+                on_press: root.btnadd()
+            Button:
+                text:"no"
+                on_press: root.btnmin()
+
+            Label:
+                text: "Temperature >100.0 °F (37.8°C)"                 
+            Button:
+                text:"yes"
+                on_press: root.btnadd()           
+            Button:
+                text:"no"
+                on_press: root.btnmin()
+
+        Label:
+            text: "Prior to your normal care of your child, do you observe any of the following"
+        GridLayout:
+            cols:3
+
+            Label:
+                text: "State Behavioral Scale (SBS)"
+            Button:
+                text:"Asleep OR awake and calm"
+                on_press: root.btnmin()
+                                    
+            Button:
+                text:"Awake AND distressed"
+                on_press: root.btnadd()
+
+            Label:
+                text: "Tremors"
+            Button:
+                text:"None or Mild"
+                on_press: root.btnmin()
+            Button:
+                text:"Moderate to Severe"
+                on_press: root.btnadd()
+                on_press: root.btnmin()
+
+            Label:
+                text: "Any Sweating"                 
+            Button:
+                text:"yes"
+                on_press: root.btnadd()           
+            Button:
+                text:"no"
+                on_press: root.btnmin()
+            
+            Label:
+                text: "Yawning or Sneezing"                 
+            Button:
+                text:"0-1 times"
+                on_press: root.btnmin()           
+            Button:
+                text:"> or + = 2 times"
+                on_press: root.btnadd()
+        Label:
+            text: "Answer based on at least one minute of interaction with child"
+        GridLayout:
+            cols:3
+
+            Label:
+                text: "Startle to Touch"                 
+            Button:
+                text:"None or mild"
+                on_press: root.btnmin()           
+            Button:
+                text:"Moderate to severe"
+                on_press: root.btnadd()
+
+            Label:
+                text: "Muscle Tone"                 
+            Button:
+                text:"None or mild"
+                on_press: root.btnmin()           
+            Button:
+                text:"Moderate to severe"
+                on_press: root.btnadd()
+
+        Label:
+            text: "Answer based on child's state at least one minute after interaction has stopped"
+        GridLayout:
+            cols:4
+
+            Label:
+                text:"Time to gain calm state"
+            Button:
+                text:" < 2 minutes"
+                on_press: root.btnmin()
+            Button:
+                text:"2 - 5 minutes"
+                on_press: root.btnadd()
+            Button:
+                text:"> 5 minutes"
+                on_press: root.btnthree()           
+
+        Button:
+            text:"Submit"
+            on_release: 
+                app.root.current = "result"
+                root.manager.transition.direction = "left"
+        Button:
+            text: "Return to Home Screen"
+            on_release: 
+                app.root.current = "demo"
+                root.manager.transition.direction = "right"
+
+<ResultWindow>:
+    name: "result"
+
+    GridLayout:
+        cols:1
+
+        Label:
+            text: "watscore"
+
+        Button:
+            text: "Home Screen"
+            on_release: 
+                app.root.current = "demo"
+                root.manager.transition.direction = "right"
+        Button:
+            text: "WAT Scorecard"
+            on_release: 
+                app.root.current = "wat"
+                root.manager.transition.direction = "right"
+
+
