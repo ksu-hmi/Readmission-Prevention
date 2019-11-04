@@ -17,14 +17,14 @@ HomeScreen:
             cols:2
 
             Label:
-                text: "Patient First Name: "
+                text: "Patient's First Name: "
 
             TextInput:
                 id: fname
                 multinline:False
 
             Label:
-                text: "Patient Last Name: "
+                text: "Patient's Last Name: "
 
             TextInput:
                 id: lname
@@ -38,7 +38,7 @@ HomeScreen:
                 multiline:False
 
             Label:
-                text: "Patient MRN (if known): "
+                text: "PRN (Patient Medical Record Number if known): "
 
             TextInput:
                 id: mrn
@@ -99,11 +99,11 @@ HomeScreen:
             Label:
                 text: "State Behavioral Scale (SBS)"
             Button:
-                text:"Asleep OR awake and calm"
+                text:"Asleep OR Awake and Calm"
                 on_press: root.btnmin()
                                     
             Button:
-                text:"Awake AND distressed"
+                text:"Awake AND Distressed"
                 on_press: root.btnadd()
 
             Label:
@@ -144,16 +144,16 @@ HomeScreen:
                 text:"None or mild"
                 on_press: root.btnmin()           
             Button:
-                text:"Moderate to severe"
+                text:"Moderate to Severe"
                 on_press: root.btnadd()
 
             Label:
                 text: "Muscle Tone"                 
             Button:
-                text:"None or mild"
+                text:"None or Mild"
                 on_press: root.btnmin()           
             Button:
-                text:"Moderate to severe"
+                text:"Moderate to Severe"
                 on_press: root.btnadd()
 
         Label:
