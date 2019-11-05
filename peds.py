@@ -3,6 +3,12 @@ from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.properties import NumericProperty
+from kivy.properties import ListProperty
+from kivy.properties import StringProperty
+from kivy.core.window import Window
+
+
+#Window.clearcolor = (0.2,.79,0.53,1)
 
 
 class DemoWindow(Screen):
@@ -10,20 +16,25 @@ class DemoWindow(Screen):
 
 class WatWindow(Screen):
     watscore = 0
-    print(watscore)
-    
-    def btnadd(self):
-        self.watscore +=1
+               
+    def btnadd(self, value):
+        if value == "down":
+            self.WatWindow.watscore +=1
+                      
          
-    def btnmin(self):
-        self.watscore +=0
+    def btnmin(self,value):
+        if value == "down":
+            self.watscore +=0
     
-    def btnthree(self):
-        self.watscore +=2
+    def btnthree(self,value):
+        if value == "down":
+            self.watscore +=2
+    
+    print(watscore)
 
+            
 class ResultWindow(Screen):
-    watscore = 0
-    print("Watscore", watscore)
+    print("Watscore")
     
 
 class HomeScreen(ScreenManager):
@@ -33,6 +44,7 @@ kv = Builder.load_file("peds.kv")
 
 class PedsMain(App):
     def build(self):
+        self.title = "Withdrawal Assessment Tool"
         return kv
 
 

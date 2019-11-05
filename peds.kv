@@ -12,19 +12,24 @@ HomeScreen:
              
         Label:
             text: "Welcome"
-
+            border: 5, "solid",(2,2,2,2)
+       
         GridLayout:
             cols:2
 
             Label:
-                text: "Patient's First Name: "
+                text: "Patient First Name: "
+                #canvas.before:
+                 #   Line:
+                  #      width: 2
+                   #     rectangle: self.x, self.y, self.width, self.height
 
             TextInput:
                 id: fname
                 multinline:False
 
             Label:
-                text: "Patient's Last Name: "
+                text: "Patient Last Name: "
 
             TextInput:
                 id: lname
@@ -38,7 +43,7 @@ HomeScreen:
                 multiline:False
 
             Label:
-                text: "PRN (Patient Medical Record Number if known): "
+                text: "Patient MRN (if known): "
 
             TextInput:
                 id: mrn
@@ -53,7 +58,7 @@ HomeScreen:
 <WatWindow>:
     name: "wat"
     watscore: 0
-
+    
     GridLayout:
         cols:1
 
@@ -64,32 +69,33 @@ HomeScreen:
             cols:3
 
             Label:
-                text: "Any loose or water stools"
-            Button:
+                text: "Any loose or watery stools"
+            ToggleButton:
                 text:"yes"
-                on_press: root.btnadd()
+                on_press: root.btnadd(self)
+                    
                  
-            Button:
+            ToggleButton:
                 text:"no"
-                on_press: root.btnmin()
+                on_press: root.btnmin(self)
 
             Label:
                 text: "Any vomiting, retching, or gagging"
-            Button:
+            ToggleButton:
                 text:"yes"
-                on_press: root.btnadd()
-            Button:
+                on_press: root.btnadd(self)
+            ToggleButton:
                 text:"no"
-                on_press: root.btnmin()
+                on_press: root.btnmin(self)
 
             Label:
                 text: "Temperature >100.0 °F (37.8°C)"                 
-            Button:
+            ToggleButton:
                 text:"yes"
-                on_press: root.btnadd()           
-            Button:
+                on_press: root.btnadd(self)           
+            ToggleButton:
                 text:"no"
-                on_press: root.btnmin()
+                on_press: root.btnmin(self)
 
         Label:
             text: "Prior to your normal care of your child, do you observe any of the following"
@@ -98,41 +104,40 @@ HomeScreen:
 
             Label:
                 text: "State Behavioral Scale (SBS)"
-            Button:
-                text:"Asleep OR Awake and Calm"
-                on_press: root.btnmin()
+            ToggleButton:
+                text:"Asleep OR awake and calm"
+                on_press: root.btnmin(self)
                                     
-            Button:
-                text:"Awake AND Distressed"
-                on_press: root.btnadd()
+            ToggleButton:
+                text:"Awake AND distressed"
+                on_press: root.btnadd(self)
 
             Label:
                 text: "Tremors"
-            Button:
+            ToggleButton:
                 text:"None or Mild"
-                on_press: root.btnmin()
-            Button:
+                on_press: root.btnmin(self)
+            ToggleButton:
                 text:"Moderate to Severe"
-                on_press: root.btnadd()
-                on_press: root.btnmin()
-
+                on_press: root.btnadd(self)
+                
             Label:
                 text: "Any Sweating"                 
-            Button:
+            ToggleButton:
                 text:"yes"
-                on_press: root.btnadd()           
-            Button:
+                on_press: root.btnadd(self)           
+            ToggleButton:
                 text:"no"
-                on_press: root.btnmin()
+                on_press: root.btnmin(self)
             
             Label:
                 text: "Yawning or Sneezing"                 
-            Button:
+            ToggleButton:
                 text:"0-1 times"
-                on_press: root.btnmin()           
-            Button:
+                on_press: root.btnmin(self)           
+            ToggleButton:
                 text:"> or + = 2 times"
-                on_press: root.btnadd()
+                on_press: root.btnadd(self)
         Label:
             text: "Answer based on at least one minute of interaction with child"
         GridLayout:
@@ -140,21 +145,21 @@ HomeScreen:
 
             Label:
                 text: "Startle to Touch"                 
-            Button:
+            ToggleButton:
                 text:"None or mild"
-                on_press: root.btnmin()           
-            Button:
-                text:"Moderate to Severe"
-                on_press: root.btnadd()
+                on_press: root.btnmin(self)           
+            ToggleButton:
+                text:"Moderate to severe"
+                on_press: root.btnadd(self)
 
             Label:
                 text: "Muscle Tone"                 
-            Button:
-                text:"None or Mild"
-                on_press: root.btnmin()           
-            Button:
-                text:"Moderate to Severe"
-                on_press: root.btnadd()
+            ToggleButton:
+                text:"None or mild"
+                on_press: root.btnmin(self)           
+            ToggleButton:
+                text:"Moderate to severe"
+                on_press: root.btnadd(self)
 
         Label:
             text: "Answer based on child's state at least one minute after interaction has stopped"
@@ -163,21 +168,22 @@ HomeScreen:
 
             Label:
                 text:"Time to gain calm state"
-            Button:
+            ToggleButton:
                 text:" < 2 minutes"
-                on_press: root.btnmin()
-            Button:
+                on_press: root.btnmin(self)
+            ToggleButton:
                 text:"2 - 5 minutes"
-                on_press: root.btnadd()
-            Button:
+                on_press: root.btnadd(self)
+            ToggleButton:
                 text:"> 5 minutes"
-                on_press: root.btnthree()           
+                on_press: root.btnthree(self)           
 
         Button:
             text:"Submit"
             on_release: 
                 app.root.current = "result"
                 root.manager.transition.direction = "left"
+                
         Button:
             text: "Return to Home Screen"
             on_release: 
@@ -203,5 +209,3 @@ HomeScreen:
             on_release: 
                 app.root.current = "wat"
                 root.manager.transition.direction = "right"
-
-
