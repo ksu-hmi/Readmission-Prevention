@@ -12,10 +12,11 @@ from kivy.uix.widget import Widget
 
 #Window.clearcolor = (0.2,.79,0.53,1)
 
+class LoginScreen(Screen):
+    pass
+
 class HomeScreen(Screen):
     pass
-class DemoScreen(Screen):
-    pass   
 
 class WatScreen(Screen):
     pass

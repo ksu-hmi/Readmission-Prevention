@@ -1,0 +1,31 @@
+#:import utils kivy.utils 
+
+#this allows me to use hex colors
+
+<HomeScreen>:
+    FloatLayout:
+        canvas:
+            Color:
+                rgb: utils.get_color_from_hex("#4ee69c")
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        Label:
+            pos_hint: {"top":1,"left": 1}
+            size_hint: 1, .5
+            text: "Welcome\nChoose your tool from below"
+            font_size: 40
+            font_name: 'Calibri'
+        GridLayout:
+            rows: 1
+            pos_hint: {"top": .4}
+            size_hint: 1, .5
+            Button:
+                text: "WAT"
+                font_size: 20
+                on_release: app.change_screen("login_screen")
+            Button:
+                text: "Weight\nTracker"
+                font_size: 20
+                on_release: app.change_screen("weight_screen")
+    

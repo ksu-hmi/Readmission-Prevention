@@ -1,5 +1,5 @@
+#: include kv/loginscreen.kv
 #: include kv/homescreen.kv
-#: include kv/demoscreen.kv
 #: include kv/watscreen.kv
 #: include kv/resultscreen.kv
 #: include kv/weightscreen.kv
@@ -8,15 +8,15 @@ GridLayout:
     cols:1
     ScreenManager:
         id: screen_manager
+        LoginScreen:
+            name: "login_screen"
+            id: login_screen
         HomeScreen:
             name: "home_screen"
             id: home_screen
         WatScreen:
             name: "wat_screen"
-            id: wat_screen
-        DemoScreen:
-            name: "demo_screen"
-            id: demo_screen
+            id: wat_screen       
         ResultScreen:
             name: "result_screen"
             id: result_screen
