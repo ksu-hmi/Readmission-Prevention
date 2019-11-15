@@ -1,6 +1,5 @@
 #:import utils kivy.utils
 
- 
 <WeightScreen>:
     FloatLayout:
         canvas:
@@ -9,6 +8,12 @@
             Rectangle:
                 size: self.size
                 pos: self.pos
+        Image:
+            source: "icons/underconstruction.png"
+            pos_hint:{"top": .8, "left": .8}
+            size_hint: 1, .5
         Button:
-            text: "This page is under construction"
+            pos_hint: {"top": .3,"right": .68}
+            size_hint: .3, .1
+            text: "Return to Home Page"
             on_release: app.change_screen("home_screen")

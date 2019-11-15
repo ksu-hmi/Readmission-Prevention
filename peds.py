@@ -3,11 +3,11 @@ from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.screenmanager import Screen
 from kivy.properties import NumericProperty
-from kivy.properties import ListProperty
-from kivy.properties import StringProperty
 from kivy.core.window import Window
 from kivy.uix.behaviors import ToggleButtonBehavior
 from kivy.uix.widget import Widget
+from kivy.uix.behaviors import ButtonBehavior
+from kivy.uix.image import Image
 
 
 #Window.clearcolor = (0.2,.79,0.53,1)
@@ -17,7 +17,8 @@ class LoginScreen(Screen):
 
 class HomeScreen(Screen):
     pass
-
+class ImageButton(ButtonBehavior,Image):
+    pass
 class WatScreen(Screen):
     pass
             

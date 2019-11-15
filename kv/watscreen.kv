@@ -3,7 +3,7 @@
     FloatLayout:
         canvas:
             Color:
-                rgb: utils.get_color_from_hex("#4ee69c")
+                rgb: utils.get_color_from_hex("#4ee69c")            
             Rectangle:
                 size: self.size
                 pos: self.size
@@ -11,9 +11,8 @@
             pos_hint: {"top": 1, "left": 1}
             size_hint: 1, .1
             font_size: 20
-            font_name: "Georgia"
+            font_name: "Calibri"
             text: "In the previous 12 hours, has your child experienced: "
-            
         GridLayout:
             cols:3
             pos_hint:{"top":.9, "left":1}
@@ -21,25 +20,37 @@
             Label:
                 text: "Any loose or watery stools"
             ToggleButton:
+                id: tb1
+                group: "a_group"
                 text:"Yes"
-                on_press: app.btnadd(self)
+                on_state: app.btnadd(self)
             ToggleButton:
+                id: tb2
+                group:"a_group"
                 text:"No"
-                on_press: app.btnmin(self)
+                on_state: app.btnmin(self)
             Label:
                 text: "Any vomiting, retching, or gagging"
             ToggleButton:
+                id: tb3
+                group: "b_group"
                 text:"Yes"
-                on_press: app.btnadd(self)
+                on_state: app.btnadd(self)
             ToggleButton:
+                id: tb4
+                group: "b_group"
                 text:"No"
                 on_press: app.btnmin(self)
             Label:
                 text: "Temperature >100F (37.8C)"                 
             ToggleButton:
+                id: tb5
+                group: "c_group"
                 text:"Yes"
                 on_press: app.btnadd(self)           
             ToggleButton:
+                id: tb6
+                group: "c_group"
                 text:"No"
                 on_press: app.btnmin(self)
 
@@ -48,7 +59,7 @@
             pos_hint:{"top":.78, "left":1}
             size_hint: 1, .1
             font_size: 20
-            font_name: "Georgia"
+            font_name: "Calibri"
         GridLayout:
             cols:3
             pos_hint:{"top":.7, "left":1}
@@ -56,35 +67,51 @@
             Label:
                 text: "State Behavioral Scale (SBS)"
             ToggleButton:
+                id: tb7
+                group: "d_group"
                 text:"Asleep OR awake and calm"
                 on_press: app.btnmin(self)
                                     
             ToggleButton:
+                id: tb8
+                group: "d_group"
                 text:"Awake AND distressed"
                 on_press: app.btnadd(self)
             Label:
                 text: "Tremors"
             ToggleButton:
+                id: tb9
+                group: "e_group"
                 text:"None or Mild"
                 on_press: app.btnmin(self)
             ToggleButton:
+                id: tb10
+                group: "e_group"
                 text:"Moderate to Severe"
                 on_press: app.btnadd(self)
             Label:
                 text: "Any Sweating"                 
             ToggleButton:
+                id: tb11
+                group: "f_group"
                 text:"Yes"
                 on_press: app.btnadd(self)           
             ToggleButton:
+                id: tb12
+                group: "f_group"
                 text:"No"
                 on_press: app.btnmin(self)
             
             Label:
                 text: "Yawning or Sneezing"                 
             ToggleButton:
+                id: tb13
+                group: "g_group"
                 text:"0-1 times"
                 on_press: app.btnmin(self)           
             ToggleButton:
+                id: tb14
+                group: "g_group"
                 text:"> or + = 2 times"
                 on_press: app.btnadd(self)
         Label:
@@ -92,7 +119,7 @@
             pos_hint:{"top":.57, "left":1}
             size_hint: 1, .1
             font_size: 20
-            font_name: "Georgia"
+            font_name: "Calibri"
         GridLayout:
             cols:3
             pos_hint:{"top":.5, "left":1}
@@ -100,18 +127,26 @@
             Label:
                 text: "Startle to Touch"                 
             ToggleButton:
+                id: tb15
+                group: "h_group"
                 text:"None or mild"
                 on_press: app.btnmin(self)           
             ToggleButton:
+                id: tb16
+                group: "h_group"
                 text:"Moderate to severe"
                 on_press: app.btnadd(self)
 
             Label:
                 text: "Muscle Tone"                 
             ToggleButton:
+                id: tb17
+                group: "i_group"
                 text:"None or mild"
                 on_press: app.btnmin(self)           
             ToggleButton:
+                id: tb18
+                group: "i_group"
                 text:"Moderate to severe"
                 on_press: app.btnadd(self)
 
@@ -120,7 +155,7 @@
             pos_hint:{"top":.4, "left":1}
             size_hint: 1, .1
             font_size: 20
-            font_name: "Georgia"
+            font_name: "Calibri"
         GridLayout:
             cols:4
             pos_hint:{"top":.3, "left":1}
@@ -128,25 +163,29 @@
             Label:
                 text:"Time to gain calm state"
             ToggleButton:
+                id: tb19
+                group: "j_group"
                 text:" < 2 minutes"
                 on_press: app.btnmin(self)
             ToggleButton:
+                id: tb20
+                group: "j_group"
                 text:"2 - 5 minutes"
                 on_press: app.btnadd(self)
             ToggleButton:
+                id: tb21
+                group: "j_group"
                 text:"> 5 minutes"
                 on_press: app.btnthree(self)           
 
         Button:
-            pos_hint:{"top": .2,"left":1}
-            size_hint: 1, .1
+            pos_hint:{"top": .2,"right":.75}
+            size_hint:.41, .1
             text:"Submit"
             on_release: 
-                app.change_screen("result_screen")
                 print("Watscore:",app.watscore)
-                
         Button:
-            pos_hint:{"top": .1,"left":1}
-            size_hint: 1, .1
+            pos_hint:{"top": .1,"right":.75}
+            size_hint: .4, .1
             text: "Return to Home Screen"
             on_release: app.change_screen("home_screen")
