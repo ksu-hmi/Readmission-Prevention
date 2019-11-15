@@ -1,12 +1,12 @@
 Project Road Map
 
-Sarah
-[ ]Create application framework 
-[ ]Update graphics and make it look good
-[ ]Ensure WAT score adds up correctly
-[ ]Do coding to ensure correct page populates with correct WAT score
-
-
+Sarah\
+-[ ]Create application framework 
+-[ ]Update graphics and make it look good
+-[ ]Ensure WAT score adds up correctly
+-[ ]Do coding to ensure correct page populates with correct WAT score
+\
+\
 Stacey
 [ ]Create a text file with log-in information 
 [ ]Create code to for users to be able to log-in from text file
