@@ -10,9 +10,8 @@ from kivy.uix.behaviors import ButtonBehavior
 from kivy.uix.image import Image
 import pickle
 
-#setup logins variable
-pickle_in = open("logins","rb")
-logins = pickle.load(pickle_in)
+
+
 
 Window.clearcolor = (0.2,.79,0.53,1)
 
@@ -38,6 +37,17 @@ class WeightScreen(Screen):
 kv = Builder.load_file("peds.kv")
 
 class PedsMain(App):
+    def __init__(self):
+        self.username = ""
+        self.password = ""
+        #self.pickle_in = ""
+        #self.logins = {}
+        super(PedsMain, self).__init__()
+        self.watscore = 0
+        #setup logins variable
+        self.pickle_in = open("logins","rb")
+        self.logins = pickle.load(self.pickle_in)
+
     def build(self):
         self.title = "Readmission Prevention"
         return kv
@@ -47,15 +57,21 @@ class PedsMain(App):
         screen_manager.current= screen_name 
     
     def loginbtn(self):
-        if username == logins[0] and password == logins[1]:
+        if self.username == self.logins['atest'] and self.password == self.logins['btest']:
             print("yay!")
+            print("for username you input: ",self.username)
+            print("for that username we retrieved",self.logins['atest'])
+            print("for password you input: ",self.password)
+            print("for that password we retrieved",self.logins['btest'])
         else:
             print("oops")
-   
-    #trying to get a score
-    def __init__(self):
-        super(PedsMain, self).__init__()
-        self.watscore = 0
+            print("for username you input: ",self.username)
+            print("for that username we retrieved",self.logins['atest'])
+            print("for password you input: ",self.password)
+            print("for that password we retrieved",self.logins['btest'])
+ 
+
+        
 
     def btnadd(self,value):
         if value == 'normal':
