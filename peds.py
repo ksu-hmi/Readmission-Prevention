@@ -10,6 +10,9 @@ from kivy.uix.behaviors import ButtonBehavior
 from kivy.uix.image import Image
 import pickle
 
+#setup logins variable
+pickle_in = open("logins","rb")
+logins = pickle.load(pickle_in)
 
 Window.clearcolor = (0.2,.79,0.53,1)
 
@@ -42,10 +45,6 @@ class PedsMain(App):
     def change_screen(self, screen_name):
         screen_manager = self.root.ids['screen_manager']
         screen_manager.current= screen_name 
-    
-    def __init__(self, username, password):
-       pickle_in = open("logins","rb")
-       logins = pickle.load(pickle_in)
     
     def loginbtn(self):
         if username == logins[0] and password == logins[1]:
