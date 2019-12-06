@@ -1,5 +1,28 @@
 #:import utils kivy.utils
 <WatScreen>:
+    on_enter:
+        tb1.state = 'normal'
+        tb2.state = 'normal'
+        tb3.state = 'normal'
+        tb4.state = 'normal'
+        tb5.state = 'normal'
+        tb6.state = 'normal'
+        tb7.state = 'normal'
+        tb8.state = 'normal'
+        tb9.state = 'normal'
+        tb10.state = 'normal'
+        tb11.state = 'normal'
+        tb12.state = 'normal'
+        tb13.state = 'normal'
+        tb14.state = 'normal'
+        tb15.state = 'normal'
+        tb16.state = 'normal'
+        tb17.state = 'normal'
+        tb18.state = 'normal'
+        tb19.state = 'normal'
+        tb20.state = 'normal'
+        tb21.state = 'normal'
+        app.watscore = 0
     FloatLayout:
         canvas:
             Color:
@@ -183,9 +206,11 @@
             size_hint:.41, .1
             text:"Submit"
             on_release: 
+                app.resultbtn()
                 print("Watscore:",app.watscore)
         Button:
             pos_hint:{"top": .1,"right":.75}
             size_hint: .4, .1
             text: "Return to Home Screen"
-            on_release: app.change_screen("home_screen")
+            on_release: 
+                app.change_screen("home_screen")

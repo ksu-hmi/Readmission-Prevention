@@ -25,7 +25,7 @@
                 border:(16,16,16,16)
                 text: "User Name: "                
             TextInput:
-                id: fname
+                id: username
                 multinline:False
 
             Button:
@@ -33,7 +33,8 @@
                 border: (16,16,16,16)
 
             TextInput:
-                id: lname
+                id: password
+                password: True
                 multiline:False
            
         Button:
@@ -42,5 +43,7 @@
             font_size: 40
             font_name: 'Georgia'
             text:"Log-in"
-            #on_release: app.change_screen("home_screen")
+            on_release: 
+                app.loginbtn()
+                #app.change_screen("wat_screen")
     

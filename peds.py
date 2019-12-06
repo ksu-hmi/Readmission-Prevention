@@ -8,9 +8,10 @@ from kivy.uix.behaviors import ToggleButtonBehavior
 from kivy.uix.widget import Widget
 from kivy.uix.behaviors import ButtonBehavior
 from kivy.uix.image import Image
+import pickle
 
 
-#Window.clearcolor = (0.2,.79,0.53,1)
+Window.clearcolor = (0.2,.79,0.53,1)
 
 class LoginScreen(Screen):
     pass
@@ -23,6 +24,10 @@ class WatScreen(Screen):
     pass
             
 class ResultScreen(Screen):
+    pass
+class ResultScreenTwo(Screen):
+    pass
+class ResultScreenThree(Screen):
     pass
 class WeightScreen(Screen):
     pass
@@ -38,6 +43,16 @@ class PedsMain(App):
         screen_manager = self.root.ids['screen_manager']
         screen_manager.current= screen_name 
     
+    def __init__(self, username, password):
+       pickle_in = open("logins","rb")
+       logins = pickle.load(pickle_in)
+    
+    def loginbtn(self):
+        if username == logins[0] and password == logins[1]:
+            print("yay!")
+        else:
+            print("oops")
+   
     #trying to get a score
     def __init__(self):
         super(PedsMain, self).__init__()
@@ -58,6 +73,14 @@ class PedsMain(App):
             self.watscore += 0
         else:
             self.watscore += 2
+    
+    def resultbtn(self):
+        if self.watscore < 3:
+            self.change_screen("result_screen")
+        elif self.watscore <= 5:
+            self.change_screen("result_screentwo")
+        else:
+            self.change_screen("result_screenthree")
     
 if __name__ == "__main__":
     PedsMain().run()
