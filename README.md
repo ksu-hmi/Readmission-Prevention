@@ -6,3 +6,6 @@ The parents will use these tools for high-risk populations at risk of readmissio
 The current population focus is children with congenital heart defects who have already had open-heart surgery.
 
 Sarah,Sid,Stacey-The triple SSS
+
+Check out our video, explaining where we're at in Dec 2019
+https://youtu.be/z5m0C7x6t0s
